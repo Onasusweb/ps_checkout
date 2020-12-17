@@ -193,7 +193,7 @@ class ps_checkoutExpressCheckoutModuleFrontController extends ModuleFrontControl
         $customer->email = $email;
         $customer->firstname = $firstName;
         $customer->lastname = $lastName;
-        $customer->passwd = Tools::passwdGen();
+        $customer->passwd = md5(time() . _COOKIE_KEY_);
 
         try {
             $customer->save();
