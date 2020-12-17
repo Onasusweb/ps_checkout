@@ -20,6 +20,7 @@
 
 use PrestaShop\Module\PrestashopCheckout\Exception\PsCheckoutException;
 use PrestaShop\Module\PrestashopCheckout\PaypalCountryCodeMatrice;
+use PrestaShop\Module\PrestashopCheckout\Updater\CustomerUpdater;
 
 /**
  * This controller receive ajax call when customer click on an express checkout button
@@ -168,6 +169,8 @@ class ps_checkoutExpressCheckoutModuleFrontController extends ModuleFrontControl
 
         if (method_exists($this->context, 'updateCustomer')) {
             $this->context->updateCustomer($customer);
+        } else {
+            CustomerUpdater::updateContextCustomer($this->context, $customer);
         }
     }
 
