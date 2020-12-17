@@ -22,6 +22,10 @@ export class PrestashopPs1_6Service {
   }
 
   static isCartPage() {
+    if (document.body.id === 'order') {
+      return document.querySelector('.step_current.first');
+    }
+
     return false;
   }
 
@@ -34,11 +38,14 @@ export class PrestashopPs1_6Service {
   }
 
   static isOrderPersonalInformationStepPage() {
-    return false;
+    return (
+      document.body.id === 'authentication' ||
+      (document.body.id === 'order-opc' && window.isLogged === false)
+    );
   }
 
   static isProductPage() {
-    return false;
+    return document.body.id === 'product';
   }
 
   static onUpdatedCart() {}
@@ -48,6 +55,16 @@ export class PrestashopPs1_6Service {
       const updatePaymentMethods = window['updatePaymentMethods'];
       window['updatePaymentMethods'] = (...args) => {
         updatePaymentMethods(...args);
+        listener(...args);
+      };
+    }
+  }
+
+  static onUpdatedShoppingCartExtra(listener) {
+    if (window['updateHookShoppingCartExtra']) {
+      const updateHookShoppingCartExtra = window['updateHookShoppingCartExtra'];
+      window['updateHookShoppingCartExtra'] = (...args) => {
+        updateHookShoppingCartExtra(...args);
         listener(...args);
       };
     }

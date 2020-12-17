@@ -672,7 +672,7 @@ class Ps_checkout extends PaymentModule
     {
         $controller = Tools::getValue('controller');
 
-        if (false === in_array($controller, ['cart', 'product', 'order', 'orderopc'], true)
+        if (false === in_array($controller, ['cart', 'product', 'order', 'orderopc', 'authentication'], true)
             || false === $this->merchantIsValid()
         ) {
             return;

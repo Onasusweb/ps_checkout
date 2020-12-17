@@ -54,4 +54,6 @@ export class PrestashopPs1_7Service {
   }
 
   static onUpdatePaymentMethods() {}
+
+  static onUpdatedShoppingCartExtra() {}
 }
