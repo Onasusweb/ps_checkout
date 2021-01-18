@@ -23,6 +23,7 @@ import 'regenerator-runtime/runtime';
 import 'url-polyfill';
 import 'whatwg-fetch';
 
+import './event-target';
 import './web-api.child-node.remove';
 import './web-api.child-node.replace-with';
 import './web-api.parent-node.append';
