@@ -18,7 +18,12 @@
  */
 export class PrestashopPs1_6Service {
   static getProductDetails() {
-    return {};
+    return {
+      id_product: document.getElementById('product_page_product_id') ? document.getElementById('product_page_product_id').value : "",
+      id_product_attribute: document.getElementById('idCombination') ? document.getElementById('idCombination').value : "",
+      id_customization: window.customizationId ? window.customizationId : "",
+      quantity_wanted: document.getElementById('quantity_wanted') ? document.getElementById('quantity_wanted').value : ""
+    };
   }
 
   static isCartPage() {
