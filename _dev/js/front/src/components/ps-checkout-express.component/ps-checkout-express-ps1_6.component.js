@@ -68,7 +68,6 @@ export class PsCheckoutExpressPs1_6Component extends BaseComponent {
     }
 
     if (this.prestashopService.isOrderPersonalInformationStepPage()) {
-      console.log('AAAAAAAAAAAAa');
       if (!this.config.expressCheckout.enabled.order) return this;
       this.children.expressButton = new ExpressButtonCheckoutComponent(
         this.app
