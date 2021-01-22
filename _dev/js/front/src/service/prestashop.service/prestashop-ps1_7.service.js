@@ -41,6 +41,10 @@ export class PrestashopPs1_7Service {
     );
   }
 
+  static isIframeProductPage() {
+    return false;
+  }
+
   static isProductPage() {
     return document.body.id === 'product';
   }

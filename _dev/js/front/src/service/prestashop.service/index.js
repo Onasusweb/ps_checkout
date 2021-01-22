@@ -48,6 +48,10 @@ export class PrestashopService {
     return !!this.instance.isOrderPaymentStepPage();
   }
 
+  isIframeProductPage() {
+    return !!this.instance.isIframeProductPage();
+  }
+
   isProductPage() {
     return !!this.instance.isProductPage();
   }

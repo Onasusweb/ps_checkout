@@ -54,6 +54,10 @@ export class PrestashopPs1_6Service {
     );
   }
 
+  static isIframeProductPage() {
+    return new URL(window.location).searchParams.get('content_only') === '1';
+  }
+
   static isProductPage() {
     return document.body.id === 'product';
   }

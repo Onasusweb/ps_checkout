@@ -76,7 +76,10 @@ export class PsCheckoutExpressPs1_6Component extends BaseComponent {
       return this;
     }
 
-    if (this.prestashopService.isProductPage()) {
+    if (
+      this.prestashopService.isProductPage() &&
+      !this.prestashopService.isIframeProductPage()
+    ) {
       if (!this.config.expressCheckout.enabled.product) return;
       if (
         this.children.expressButton &&

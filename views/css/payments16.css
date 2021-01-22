@@ -350,3 +350,12 @@
   padding-right: 10px;
   width: 20%;
 }
+
+.express-checkout-block .ps_checkout-express-checkout-button {
+  overflow: auto;
+}
+
+.express-checkout-block .ps_checkout-express-checkout-button button {
+  float: right;
+  border-radius: 4px;
+}
