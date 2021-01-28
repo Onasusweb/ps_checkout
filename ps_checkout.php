@@ -74,6 +74,7 @@ class Ps_checkout extends PaymentModule
      * @var array
      */
     const HOOK_LIST_16 = [
+        'actionBeforeCartUpdateQty',
         'displayPayment',
     ];
 
@@ -391,6 +392,9 @@ class Ps_checkout extends PaymentModule
         return $this->display(__FILE__, '/views/templates/admin/configuration.tpl');
     }
 
+    /**
+     * This hook is called only since PrestaShop 1.7.0.0
+     */
     public function hookActionCartUpdateQuantityBefore()
     {
         if (false === Validate::isLoadedObject($this->context->cart)) {
@@ -411,6 +415,22 @@ class Ps_checkout extends PaymentModule
             $psCheckoutCartRepository->remove($psCheckoutCart);
             $this->context->cookie->__unset('paypalEmail');
         }
+    }
+
+    /**
+     * This hook is called only in PrestaShop 1.6.1 to 1.6.1.24
+     * Deprecated since PrestaShop 1.7.0.0
+     */
+    public function hookActionBeforeCartUpdateQty()
+    {
+        /** @var \PrestaShop\Module\PrestashopCheckout\ShopContext $shopContext */
+        $shopContext = $this->getService('ps_checkout.context.shop');
+
+        if ($shopContext->isShop17()) {
+            return;
+        }
+
+        $this->hookActionCartUpdateQuantityBefore();
     }
 
     /**
