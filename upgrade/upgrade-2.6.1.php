@@ -22,13 +22,13 @@ if (!defined('_PS_VERSION_')) {
 }
 
 /**
- * Update main function for module version 2.6.0
+ * Update main function for module version 2.6.1
  *
  * @param Ps_checkout $module
  *
  * @return bool
  */
-function upgrade_module_2_6_0($module)
+function upgrade_module_2_6_1($module)
 {
     if (false === (bool) version_compare(_PS_VERSION_, '1.7.0.0', '>=')) {
         // Register hook only for PrestaShop 1.6, used for ExpressCheckout
